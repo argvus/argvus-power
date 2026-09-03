@@ -1,7 +1,7 @@
 # Maintainer: William C. Canin
 pkgname=argvus-power
 pkgver=0.1.0
-pkgrel=4
+pkgrel=1
 pkgdesc="Power, shutdown and idle controls for the ARGVUS desktop."
 arch=('any')
 url="https://github.com/argvus/argvus-power"
