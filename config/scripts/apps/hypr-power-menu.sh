@@ -1,0 +1,153 @@
+#!/usr/bin/env sh
+
+# shellcheck disable=SC1091
+ARGVUS_BOOTSTRAP="${ARGVUS_BOOTSTRAP:-${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}/scripts/argvus/bootstrap.sh}"
+. "$ARGVUS_BOOTSTRAP"
+
+do_lock() {
+  sh "$(paths_config scripts/argvus/hyprlock-theme.sh)" >/dev/null || return 1
+  HYPRLOCK_PATH="$(
+    sed -n \
+      -e "s|^[[:space:]]*path[[:space:]]*=[[:space:]]*~|$HOME|p" \
+      -e "s|^[[:space:]]*path[[:space:]]*=[[:space:]]*\\(/.*\\)|\\1|p" \
+      "$(paths_config hypr/hyprlock.conf)" |
+      head -n1
+  )"
+  [ -n "$WALLPAPER_PATH" ] && [ -f "$WALLPAPER_PATH" ] || return 1
+  [ -n "$HYPRLOCK_PATH" ] || return 1
+  mkdir -p "${HYPRLOCK_PATH%/*}"
+  if [ ! -f "$HYPRLOCK_PATH" ] || [ "$WALLPAPER_PATH" -nt "$HYPRLOCK_PATH" ]; then
+    magick "$WALLPAPER_PATH" \
+      -blur 0x2 \
+      -fill black -colorize 20% \
+      "$HYPRLOCK_PATH"
+  fi
+  if [ "$(sh "$(paths_config scripts/argvus/lock-dpms-toggle.sh)" status)" = "enabled" ]; then
+    (sleep 1; hyprctl dispatch 'hl.dsp.dpms({ action = "off" })') &
+  fi
+  exec hyprlock
+}
+
+do_logout() {
+  if command -v hyprctl >/dev/null 2>&1; then
+    hyprctl dispatch exit >/dev/null 2>&1 && exit 0
+  fi
+
+  if command -v loginctl >/dev/null 2>&1 && [ -n "${XDG_SESSION_ID:-}" ]; then
+    loginctl terminate-session "$XDG_SESSION_ID" >/dev/null 2>&1 && exit 0
+  fi
+
+  if command -v pkill >/dev/null 2>&1; then
+    pkill -TERM -u "$(id -u)" -x Hyprland >/dev/null 2>&1 && exit 0
+    pkill -TERM -u "$(id -u)" -x hyprland >/dev/null 2>&1 && exit 0
+  fi
+
+  if command -v argvus-sessionctl >/dev/null 2>&1; then
+    argvus-sessionctl stop >/dev/null 2>&1 || true
+  fi
+
+  if command -v hyprshutdown >/dev/null 2>&1; then
+    exec hyprshutdown --no-fork
+  fi
+
+  exit 1
+}
+
+do_suspend() {
+  systemctl suspend
+}
+
+do_reboot() {
+  exec systemctl reboot
+}
+
+do_shutdown() {
+  exec systemctl poweroff
+}
+
+# -- power-menu.sh --lock
+# Also used for the keyboard shortcut Mod+Shift+l
+# ------------------------------------------------------------------------------
+case "${1:-}" in
+  --lock)
+    do_lock
+    exit $?
+    ;;
+  --suspend)
+    do_suspend
+    exit $?
+    ;;
+  --logout)
+    do_logout
+    ;;
+  --reboot)
+    do_reboot
+    ;;
+  --shutdown|--poweroff)
+    do_shutdown
+    ;;
+esac
+
+# -- Translate -----------------------------------------------------------------
+if locale_is_pt; then
+  LOCK="Bloquear"
+  SUSPEND="Suspender"
+  LOGOUT="Sair"
+  REBOOT="Reiniciar"
+  SHUTDOWN="Desligar"
+else
+  LOCK="Lock"
+  SUSPEND="Suspend"
+  LOGOUT="Log Out"
+  REBOOT="Reboot"
+  SHUTDOWN="Shut Down"
+fi
+
+# -- Menu -----------------------------------------------------------------
+# Ensure we have a menu launcher; prefer rofi, fall back to wofi
+if [ -z "$FINDER" ]; then
+  if command -v rofi >/dev/null 2>&1; then
+    FINDER=$(command -v rofi)
+  elif command -v wofi >/dev/null 2>&1; then
+    FINDER=$(command -v wofi)
+  else
+    echo "No menu launcher (rofi/wofi) found." >&2
+    exit 1
+  fi
+fi
+
+# Use basename so different install paths still match
+case "$(basename "$FINDER")" in
+rofi)
+  CHOICE=$(printf '%s\n' \
+    "$LOCK" \
+    "$SUSPEND" \
+    "$LOGOUT" \
+    "$REBOOT" \
+    "$SHUTDOWN" |
+    "$FINDER" -config "$(paths_config rofi/config.rasi)" -dmenu -p ">" \
+    -theme-str 'window {width: 220px;} listview {lines: 5;}' -no-custom -i)
+  ;;
+wofi)
+  CHOICE=$(printf '%s\n' \
+    "$LOCK" \
+    "$SUSPEND" \
+    "$LOGOUT" \
+    "$REBOOT" \
+    "$SHUTDOWN" |
+    "$FINDER")
+  ;;
+*)
+  echo "Unsupported menu launcher: $FINDER" >&2
+  exit 1
+  ;;
+esac
+
+# ── Despatch ------------------------------------------------------------------
+case "$CHOICE" in
+"$LOCK")     do_lock ;;
+"$SUSPEND")  do_suspend ;;
+"$LOGOUT")   do_logout ;;
+"$REBOOT")   do_reboot ;;
+"$SHUTDOWN") do_shutdown ;;
+esac
