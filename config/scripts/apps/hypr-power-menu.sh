@@ -104,14 +104,12 @@ else
 fi
 
 # -- Menu -----------------------------------------------------------------
-# Ensure we have a menu launcher; prefer rofi, fall back to wofi
+# Ensure we have the ARGVUS menu launcher.
 if [ -z "$FINDER" ]; then
   if command -v rofi >/dev/null 2>&1; then
     FINDER=$(command -v rofi)
-  elif command -v wofi >/dev/null 2>&1; then
-    FINDER=$(command -v wofi)
   else
-    echo "No menu launcher (rofi/wofi) found." >&2
+    echo "Rofi menu launcher not found." >&2
     exit 1
   fi
 fi
@@ -127,15 +125,6 @@ rofi)
     "$SHUTDOWN" |
     "$FINDER" -config "$(paths_config rofi/config.rasi)" -dmenu -p ">" \
     -theme-str 'window {width: 220px;} listview {lines: 5;}' -no-custom -i)
-  ;;
-wofi)
-  CHOICE=$(printf '%s\n' \
-    "$LOCK" \
-    "$SUSPEND" \
-    "$LOGOUT" \
-    "$REBOOT" \
-    "$SHUTDOWN" |
-    "$FINDER")
   ;;
 *)
   echo "Unsupported menu launcher: $FINDER" >&2

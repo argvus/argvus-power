@@ -16,8 +16,7 @@ depends=(
 optdepends=(
   'imagemagick: blurred lock wallpaper generation'
   'power-profiles-daemon: Quickshell and Waybar power profile controls'
-  'rofi: preferred power menu launcher'
-  'wofi: fallback power menu launcher'
+  'argvus-launcher: Rofi power menu theme integration'
 )
 options=('!debug')
 source=("${pkgname}-${pkgver}.tar.gz")
