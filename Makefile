@@ -17,7 +17,7 @@ help:
 
 install:
 	$(INSTALL) -dm755 "$(DESTDIR)$(PREFIX)/share/argvus"
-	cp -a config/. "$(DESTDIR)$(PREFIX)/share/argvus/"
+	cp -a src/. "$(DESTDIR)$(PREFIX)/share/argvus/"
 	find "$(DESTDIR)$(PREFIX)/share/argvus/scripts" -type f -name '*.sh' -exec chmod 755 {} \; 2>/dev/null || true
 	$(INSTALL) -Dm644 LICENSE \
 		"$(DESTDIR)$(PREFIX)/share/licenses/argvus-power/LICENSE"
@@ -31,7 +31,7 @@ uninstall:
 
 validate:
 	@set -eu; \
-	scripts=$$(find config -type f -name '*.sh' | sort); \
+	scripts=$$(find src -type f -name '*.sh' | sort); \
 	test -n "$$scripts"; \
 	for script in $$scripts; do sh -n "$$script"; done; \
 	if command -v shellcheck >/dev/null 2>&1; then \
@@ -39,8 +39,8 @@ validate:
 	else \
 		echo "shellcheck not found; skipped"; \
 	fi
-	@test -f config/hypr/hypridle.conf
-	@grep -q '/usr/share/argvus/scripts/apps/hypr-power-menu.sh --lock' config/hypr/hypridle.conf
+	@test -f src/hypr/hypridle.conf
+	@grep -q '/usr/share/argvus/scripts/apps/hypr-power-menu.sh --lock' src/hypr/hypridle.conf
 	@echo "argvus-power validation ok"
 
 release-archive:
