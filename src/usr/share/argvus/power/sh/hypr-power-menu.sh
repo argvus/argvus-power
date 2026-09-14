@@ -5,6 +5,8 @@ ARGVUS_BOOTSTRAP="${ARGVUS_BOOTSTRAP:-${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}
 . "$ARGVUS_BOOTSTRAP"
 
 do_lock() {
+  # Wallpaper paths belong to appearance and are not loaded by bootstrap.
+  . "${ARGVUS_SYSTEM_CONFIG}/appearance/sh/hypr.sh"
   sh "$(paths_config lock/sh/hyprlock-theme.sh)" >/dev/null || return 1
   HYPRLOCK_PATH="$(
     sed -n \
@@ -25,12 +27,12 @@ do_lock() {
   if [ "$(sh "$(paths_config power/sh/lock-dpms-toggle.sh)" status)" = "enabled" ]; then
     (sleep 1; hyprctl dispatch 'hl.dsp.dpms({ action = "off" })') &
   fi
-  exec hyprlock
+  exec hyprlock -c "$(paths_config lock/config/hyprlock.conf)"
 }
 
 do_logout() {
   if command -v hyprctl >/dev/null 2>&1; then
-    hyprctl dispatch exit >/dev/null 2>&1 && exit 0
+    hyprctl eval 'hl.dispatch(hl.dsp.exit())' >/dev/null 2>&1 && exit 0
   fi
 
   if command -v loginctl >/dev/null 2>&1 && [ -n "${XDG_SESSION_ID:-}" ]; then
