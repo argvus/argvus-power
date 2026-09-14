@@ -14,10 +14,10 @@ Avoid persistent background processes unless they are supervised by the ARGVUS s
 
 This package owns:
 
-- `/usr/share/argvus/scripts/apps/hypr-power-menu.sh`
-- `/usr/share/argvus/scripts/argvus/idle-timeout.sh`
-- `/usr/share/argvus/scripts/argvus/lock-dpms-toggle.sh`
-- `/usr/share/argvus/hypr/hypridle.conf`
+- `/usr/share/argvus/power/sh/hypr-power-menu.sh`
+- `/usr/share/argvus/power/sh/idle-timeout.sh`
+- `/usr/share/argvus/power/sh/lock-dpms-toggle.sh`
+- `/usr/share/argvus/power/config/hypridle.conf`
 
 The lock screen theme/config is owned by `argvus-lock`. The power menu calls
 `hyprlock-theme.sh` when it is available, then invokes `hyprlock` and applies
@@ -33,18 +33,18 @@ argvus-sessionctl restart hypridle
 ## Commands
 
 ```sh
-sh /usr/share/argvus/scripts/apps/hypr-power-menu.sh
-sh /usr/share/argvus/scripts/apps/hypr-power-menu.sh --lock
-sh /usr/share/argvus/scripts/apps/hypr-power-menu.sh --suspend
-sh /usr/share/argvus/scripts/apps/hypr-power-menu.sh --logout
-sh /usr/share/argvus/scripts/apps/hypr-power-menu.sh --reboot
-sh /usr/share/argvus/scripts/apps/hypr-power-menu.sh --shutdown
+sh /usr/share/argvus/power/sh/hypr-power-menu.sh
+sh /usr/share/argvus/power/sh/hypr-power-menu.sh --lock
+sh /usr/share/argvus/power/sh/hypr-power-menu.sh --suspend
+sh /usr/share/argvus/power/sh/hypr-power-menu.sh --logout
+sh /usr/share/argvus/power/sh/hypr-power-menu.sh --reboot
+sh /usr/share/argvus/power/sh/hypr-power-menu.sh --shutdown
 
-sh /usr/share/argvus/scripts/argvus/idle-timeout.sh status
-sh /usr/share/argvus/scripts/argvus/idle-timeout.sh 300
+sh /usr/share/argvus/power/sh/idle-timeout.sh status
+sh /usr/share/argvus/power/sh/idle-timeout.sh 300
 
-sh /usr/share/argvus/scripts/argvus/lock-dpms-toggle.sh status
-sh /usr/share/argvus/scripts/argvus/lock-dpms-toggle.sh toggle
+sh /usr/share/argvus/power/sh/lock-dpms-toggle.sh status
+sh /usr/share/argvus/power/sh/lock-dpms-toggle.sh toggle
 ```
 
 ## Installation

@@ -16,17 +16,14 @@ help:
 	@echo "  make release-archive"
 
 install:
-	$(INSTALL) -dm755 "$(DESTDIR)$(PREFIX)/share/argvus"
-	cp -a src/. "$(DESTDIR)$(PREFIX)/share/argvus/"
-	find "$(DESTDIR)$(PREFIX)/share/argvus/scripts" -type f -name '*.sh' -exec chmod 755 {} \; 2>/dev/null || true
+	$(INSTALL) -dm755 "$(DESTDIR)$(PREFIX)/share/argvus/power"
+	cp -a src/usr/share/argvus/power/. "$(DESTDIR)$(PREFIX)/share/argvus/power/"
+	find "$(DESTDIR)$(PREFIX)/share/argvus/power/sh" -type f -name '*.sh' -exec chmod 755 {} \; 2>/dev/null || true
 	$(INSTALL) -Dm644 LICENSE \
 		"$(DESTDIR)$(PREFIX)/share/licenses/argvus-power/LICENSE"
 
 uninstall:
-	$(RM) "$(DESTDIR)$(PREFIX)/share/argvus/scripts/apps/hypr-power-menu.sh"
-	$(RM) "$(DESTDIR)$(PREFIX)/share/argvus/scripts/argvus/idle-timeout.sh"
-	$(RM) "$(DESTDIR)$(PREFIX)/share/argvus/scripts/argvus/lock-dpms-toggle.sh"
-	$(RM) "$(DESTDIR)$(PREFIX)/share/argvus/hypr/hypridle.conf"
+	rm -rf "$(DESTDIR)$(PREFIX)/share/argvus/power"
 	$(RM) "$(DESTDIR)$(PREFIX)/share/licenses/argvus-power/LICENSE"
 
 validate:
@@ -39,8 +36,8 @@ validate:
 	else \
 		echo "shellcheck not found; skipped"; \
 	fi
-	@test -f src/hypr/hypridle.conf
-	@grep -q '/usr/share/argvus/scripts/apps/hypr-power-menu.sh --lock' src/hypr/hypridle.conf
+	@test -f src/usr/share/argvus/power/config/hypridle.conf
+	@grep -q '/usr/share/argvus/power/sh/hypr-power-menu.sh --lock' src/usr/share/argvus/power/config/hypridle.conf
 	@echo "argvus-power validation ok"
 
 release-archive:

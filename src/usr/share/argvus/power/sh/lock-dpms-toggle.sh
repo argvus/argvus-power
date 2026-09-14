@@ -5,7 +5,7 @@
 
 set -u
 
-ARGVUS_BOOTSTRAP="${ARGVUS_BOOTSTRAP:-${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}/scripts/argvus/bootstrap.sh}"
+ARGVUS_BOOTSTRAP="${ARGVUS_BOOTSTRAP:-${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}/session/sh/bootstrap.sh}"
 . "$ARGVUS_BOOTSTRAP"
 
 STATE_FILE="$(paths_cache argvus)/lock-dpms"

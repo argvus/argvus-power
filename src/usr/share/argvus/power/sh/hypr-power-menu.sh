@@ -1,16 +1,16 @@
 #!/usr/bin/env sh
 
 # shellcheck disable=SC1091
-ARGVUS_BOOTSTRAP="${ARGVUS_BOOTSTRAP:-${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}/scripts/argvus/bootstrap.sh}"
+ARGVUS_BOOTSTRAP="${ARGVUS_BOOTSTRAP:-${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}/session/sh/bootstrap.sh}"
 . "$ARGVUS_BOOTSTRAP"
 
 do_lock() {
-  sh "$(paths_config scripts/argvus/hyprlock-theme.sh)" >/dev/null || return 1
+  sh "$(paths_config lock/sh/hyprlock-theme.sh)" >/dev/null || return 1
   HYPRLOCK_PATH="$(
     sed -n \
       -e "s|^[[:space:]]*path[[:space:]]*=[[:space:]]*~|$HOME|p" \
       -e "s|^[[:space:]]*path[[:space:]]*=[[:space:]]*\\(/.*\\)|\\1|p" \
-      "$(paths_config hypr/hyprlock.conf)" |
+      "$(paths_config lock/config/hyprlock.conf)" |
       head -n1
   )"
   [ -n "$WALLPAPER_PATH" ] && [ -f "$WALLPAPER_PATH" ] || return 1
@@ -22,7 +22,7 @@ do_lock() {
       -fill black -colorize 20% \
       "$HYPRLOCK_PATH"
   fi
-  if [ "$(sh "$(paths_config scripts/argvus/lock-dpms-toggle.sh)" status)" = "enabled" ]; then
+  if [ "$(sh "$(paths_config power/sh/lock-dpms-toggle.sh)" status)" = "enabled" ]; then
     (sleep 1; hyprctl dispatch 'hl.dsp.dpms({ action = "off" })') &
   fi
   exec hyprlock
@@ -123,7 +123,7 @@ rofi)
     "$LOGOUT" \
     "$REBOOT" \
     "$SHUTDOWN" |
-    "$FINDER" -config "$(paths_config rofi/config.rasi)" -dmenu -p ">" \
+    "$FINDER" -config "$(paths_config launcher/config/config.rasi)" -dmenu -p ">" \
     -theme-str 'window {width: 220px;} listview {lines: 5;}' -no-custom -i)
   ;;
 *)

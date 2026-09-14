@@ -8,13 +8,13 @@ set -u
 
 start=0; end=0; tline=0; tval=0
 
-ARGVUS_BOOTSTRAP="${ARGVUS_BOOTSTRAP:-${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}/scripts/argvus/bootstrap.sh}"
+ARGVUS_BOOTSTRAP="${ARGVUS_BOOTSTRAP:-${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}/session/sh/bootstrap.sh}"
 . "$ARGVUS_BOOTSTRAP"
 ARGVUS_MUTABLE_CONFIG=1
 
 STATE_DIR="${ARGVUS_CONFIG_HOME}/argvus"
 TIMEOUT_FILE="${STATE_DIR}/.idle-timeout"
-HYPRIDLE_FILE="$(paths_config hypr/hypridle.conf)"
+HYPRIDLE_FILE="$(paths_config power/config/hypridle.conf)"
 DEFAULT_TIMEOUT=300
 RUNTIME=1
 
@@ -83,7 +83,7 @@ read_timeout() {
 }
 
 select_timeout() {
-  rofi -config "$(paths_config rofi/config.rasi)" -dmenu -p "Lock timeout" -i -theme-str 'listview {lines: 6;}' <<'EOF'
+  rofi -config "$(paths_config launcher/config/config.rasi)" -dmenu -p "Lock timeout" -i -theme-str 'listview {lines: 6;}' <<'EOF'
 01 - 1 minute
 02 - 5 minutes
 03 - 10 minutes
@@ -107,7 +107,7 @@ normalize_timeout() {
 
 append_lock_listener() {
   cmd="$(lock_command)"
-  cmd="${cmd:-sh /usr/share/argvus/scripts/apps/hypr-power-menu.sh --lock}"
+  cmd="${cmd:-sh /usr/share/argvus/power/sh/hypr-power-menu.sh --lock}"
   cat >> "$HYPRIDLE_FILE" <<EOF
 
 # Screen-lock timer (managed by ARGVUS Control Center)
