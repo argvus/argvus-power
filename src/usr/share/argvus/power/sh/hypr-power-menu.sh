@@ -3,6 +3,8 @@
 # shellcheck disable=SC1091
 ARGVUS_BOOTSTRAP="${ARGVUS_BOOTSTRAP:-${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}/session/sh/bootstrap.sh}"
 . "$ARGVUS_BOOTSTRAP"
+# shellcheck disable=SC1091
+. /usr/share/argvus/lib/i18n.sh
 
 do_lock() {
   # Wallpaper paths belong to appearance and are not loaded by bootstrap.
@@ -91,19 +93,11 @@ case "${1:-}" in
 esac
 
 # -- Translate -----------------------------------------------------------------
-if locale_is_pt; then
-  LOCK="Bloquear"
-  SUSPEND="Suspender"
-  LOGOUT="Sair"
-  REBOOT="Reiniciar"
-  SHUTDOWN="Desligar"
-else
-  LOCK="Lock"
-  SUSPEND="Suspend"
-  LOGOUT="Log Out"
-  REBOOT="Reboot"
-  SHUTDOWN="Shut Down"
-fi
+LOCK="$(argvus_tr power menu.lock)"
+SUSPEND="$(argvus_tr power menu.suspend)"
+LOGOUT="$(argvus_tr power menu.logout)"
+REBOOT="$(argvus_tr power menu.reboot)"
+SHUTDOWN="$(argvus_tr power menu.shutdown)"
 
 # -- Menu -----------------------------------------------------------------
 # Ensure we have the ARGVUS menu launcher.
@@ -111,7 +105,7 @@ if [ -z "$FINDER" ]; then
   if command -v rofi >/dev/null 2>&1; then
     FINDER=$(command -v rofi)
   else
-    echo "Rofi menu launcher not found." >&2
+    argvus_tr power menu.launcher_missing >&2
     exit 1
   fi
 fi
@@ -129,7 +123,7 @@ rofi)
     -theme-str 'window {width: 220px;} listview {lines: 5;}' -no-custom -i)
   ;;
 *)
-  echo "Unsupported menu launcher: $FINDER" >&2
+  argvus_tr power menu.unsupported_launcher "launcher=$FINDER" >&2
   exit 1
   ;;
 esac

@@ -8,6 +8,7 @@ url="https://github.com/argvus/argvus-power"
 license=('GPL-3.0-only')
 depends=(
   'argvus-lock'
+  'argvus-i18n'
   'argvus-session'
   'hypridle'
   'hyprshutdown'

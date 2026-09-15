@@ -10,6 +10,8 @@ start=0; end=0; tline=0; tval=0
 
 ARGVUS_BOOTSTRAP="${ARGVUS_BOOTSTRAP:-${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}/session/sh/bootstrap.sh}"
 . "$ARGVUS_BOOTSTRAP"
+# shellcheck disable=SC1091
+. /usr/share/argvus/lib/i18n.sh
 ARGVUS_MUTABLE_CONFIG=1
 
 STATE_DIR="${ARGVUS_CONFIG_HOME}/argvus"
@@ -83,24 +85,32 @@ read_timeout() {
 }
 
 select_timeout() {
-  rofi -config "$(paths_config launcher/config/config.rasi)" -dmenu -p "Lock timeout" -i -theme-str 'listview {lines: 6;}' <<'EOF'
-01 - 1 minute
-02 - 5 minutes
-03 - 10 minutes
-04 - 15 minutes
-05 - 30 minutes
-06 - Never
+  rofi -config "$(paths_config launcher/config/config.rasi)" -dmenu \
+    -p "$(argvus_tr power idle.timeout.title)" -i \
+    -theme-str 'listview {lines: 6;}' <<EOF
+01 - $(argvus_tr power idle.timeout.one_minute)
+02 - $(argvus_tr power idle.timeout.minutes count=5)
+03 - $(argvus_tr power idle.timeout.minutes count=10)
+04 - $(argvus_tr power idle.timeout.minutes count=15)
+05 - $(argvus_tr power idle.timeout.minutes count=30)
+06 - $(argvus_tr power idle.timeout.never)
 EOF
 }
 
 normalize_timeout() {
   case "$1" in
-    0|0m|0min|*"Never"|*"Nunca") TIMEOUT=0; LABEL="Nunca" ;;
-    60|1m|1min|*"1 minute"|*"1 minuto") TIMEOUT=60; LABEL="1 min" ;;
-    300|5m|5min|*" 5 minutes"|*" 5 minutos") TIMEOUT=300; LABEL="5 min" ;;
-    600|10m|10min|*"10 minutes"|*"10 minutos") TIMEOUT=600; LABEL="10 min" ;;
-    900|15m|15min|*"15 minutes"|*"15 minutos") TIMEOUT=900; LABEL="15 min" ;;
-    1800|30m|30min|*"30 minutes"|*"30 minutos") TIMEOUT=1800; LABEL="30 min" ;;
+    0|0m|0min|*"Never"|*"Nunca"|06*)
+      TIMEOUT=0; LABEL="$(argvus_tr power idle.timeout.never)" ;;
+    60|1m|1min|*"1 minute"|*"1 minuto"|01*)
+      TIMEOUT=60; LABEL="$(argvus_tr power idle.timeout.one_minute)" ;;
+    300|5m|5min|*" 5 minutes"|*" 5 minutos"|02*)
+      TIMEOUT=300; LABEL="$(argvus_tr power idle.timeout.minutes count=5)" ;;
+    600|10m|10min|*"10 minutes"|*"10 minutos"|03*)
+      TIMEOUT=600; LABEL="$(argvus_tr power idle.timeout.minutes count=10)" ;;
+    900|15m|15min|*"15 minutes"|*"15 minutos"|04*)
+      TIMEOUT=900; LABEL="$(argvus_tr power idle.timeout.minutes count=15)" ;;
+    1800|30m|30min|*"30 minutes"|*"30 minutos"|05*)
+      TIMEOUT=1800; LABEL="$(argvus_tr power idle.timeout.minutes count=30)" ;;
     *) return 1 ;;
   esac
 }
@@ -120,7 +130,7 @@ EOF
 
 apply_timeout() {
   [ -f "$HYPRIDLE_FILE" ] || {
-    printf 'hypridle config not found: %s\n' "$HYPRIDLE_FILE" >&2
+    argvus_tr power idle.timeout.config_missing "path=$HYPRIDLE_FILE" >&2
     exit 1
   }
 
@@ -170,11 +180,12 @@ if [ "${ARGVUS_NO_RUNTIME:-0}" = 1 ]; then
 fi
 
 if ! normalize_timeout "$REQUESTED"; then
-  printf 'Invalid lock timeout: %s\n' "$REQUESTED" >&2
+  argvus_tr power idle.timeout.invalid "timeout=$REQUESTED" >&2
   exit 1
 fi
 
 apply_timeout
 [ "$RUNTIME" -eq 1 ] && refresh_runtime
-notify-send "Lock timeout" "Inactivity lock: ${LABEL}" 2>/dev/null || true
+notify-send "$(argvus_tr power idle.timeout.title)" \
+  "$(argvus_tr power idle.timeout.notification "timeout=$LABEL")" 2>/dev/null || true
 printf '%s\n' "$TIMEOUT"

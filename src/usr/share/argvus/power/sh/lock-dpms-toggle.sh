@@ -7,6 +7,8 @@ set -u
 
 ARGVUS_BOOTSTRAP="${ARGVUS_BOOTSTRAP:-${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}/session/sh/bootstrap.sh}"
 . "$ARGVUS_BOOTSTRAP"
+# shellcheck disable=SC1091
+. /usr/share/argvus/lib/i18n.sh
 
 STATE_FILE="$(paths_cache argvus)/lock-dpms"
 
@@ -44,7 +46,8 @@ case "${1:-}" in
   off)    cmd_off ;;
   toggle) cmd_toggle ;;
   *)
-    echo "Usage: $0 {status|on|off|toggle}" >&2
+    argvus_tr power dpms.usage \
+      "command=$0" "arguments={status|on|off|toggle}" >&2
     exit 1
     ;;
 esac
