@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 # Toggle whether the monitor turns off (dpms) right after the screen is locked.
 # Usage: lock-dpms-toggle.sh [status|on|off|toggle]
-# shellcheck disable=SC1091
+# shellcheck disable=SC1090,SC1091
 
 set -u
 

@@ -2,7 +2,7 @@
 # Configure the inactivity lock timeout used by hypridle.
 # Usage: idle-timeout.sh [status|60|300|600|900|1800|0]
 # Values are in seconds; 0 disables the idle lock ("Nunca").
-# shellcheck disable=SC1091
+# shellcheck disable=SC1090,SC1091
 
 set -u
 
@@ -12,6 +12,7 @@ ARGVUS_BOOTSTRAP="${ARGVUS_BOOTSTRAP:-${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}
 . "$ARGVUS_BOOTSTRAP"
 # shellcheck disable=SC1091
 . /usr/share/argvus/lib/i18n.sh
+# shellcheck disable=SC2034
 ARGVUS_MUTABLE_CONFIG=1
 
 STATE_DIR="${ARGVUS_CONFIG_HOME}/argvus"

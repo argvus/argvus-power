@@ -6,24 +6,28 @@ pkgdesc="Power, shutdown and idle controls for the ARGVUS desktop."
 arch=('any')
 url="https://github.com/argvus/argvus-power"
 license=('GPL-3.0-only')
-depends=(
-  'argvus-lock'
-  'argvus-i18n'
-  'argvus-session'
-  'hypridle'
-  'hyprshutdown'
-  'systemd'
-)
+depends=('argvus-lock' 'argvus-i18n' 'argvus-session' 'hypridle' 'hyprshutdown' 'systemd')
 optdepends=(
   'imagemagick: blurred lock wallpaper generation'
   'power-profiles-daemon: Quickshell and Waybar power profile controls'
   'argvus-launcher: Rofi power menu theme integration'
 )
 options=('!debug')
-source=("${pkgname}-${pkgver}.tar.gz::${url}/archive/refs/tags/v${pkgver}.tar.gz")
-sha256sums=('SKIP')
+source=("${pkgname}-${pkgver}.tar.gz")
+sha256sums=()
+
+# shellcheck disable=SC1091
+_functions_file="${startdir:-$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)}/../common/functions.sh"
+. "$_functions_file"
+
+prepare() {
+  arch_normalize_source_tree
+}
+
+check() {
+  arch_check_payload
+}
 
 package() {
-  cd "${srcdir}/${pkgname}-${pkgver}"
-  make DESTDIR="${pkgdir}" PREFIX=/usr install
+  arch_package_payload
 }

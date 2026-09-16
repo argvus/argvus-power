@@ -1,74 +1,47 @@
 # argvus-power
 
-Power menu, shutdown/reboot/suspend integration, idle timeout and DPMS controls for ARGVUS.
+Power, shutdown, reboot, suspend, idle timeout and DPMS controls for the
+ARGVUS desktop.
 
-Read the ecosystem plan first:
+## Build and install
 
-```text
-/home/boss/Projects/github/organizations/argvus/argvus-session/tmp/AGENT_PLAN.md
-```
-
-Avoid persistent background processes unless they are supervised by the ARGVUS session manager.
-
-## Ownership
-
-This package owns:
-
-- `/usr/share/argvus/power/sh/hypr-power-menu.sh`
-- `/usr/share/argvus/power/sh/idle-timeout.sh`
-- `/usr/share/argvus/power/sh/lock-dpms-toggle.sh`
-- `/usr/share/argvus/power/config/hypridle.conf`
-
-The lock screen theme/config is owned by `argvus-lock`. The power menu calls
-`hyprlock-theme.sh` when it is available, then invokes `hyprlock` and applies
-the DPMS-on-lock policy managed by this package.
-
-Idle timeout changes update the mutable Hypridle config copy and reload the
-runtime through:
+On Arch Linux or a compatible distribution:
 
 ```sh
-argvus-sessionctl restart hypridle
-```
-
-## Commands
-
-```sh
-sh /usr/share/argvus/power/sh/hypr-power-menu.sh
-sh /usr/share/argvus/power/sh/hypr-power-menu.sh --lock
-sh /usr/share/argvus/power/sh/hypr-power-menu.sh --suspend
-sh /usr/share/argvus/power/sh/hypr-power-menu.sh --logout
-sh /usr/share/argvus/power/sh/hypr-power-menu.sh --reboot
-sh /usr/share/argvus/power/sh/hypr-power-menu.sh --shutdown
-
-sh /usr/share/argvus/power/sh/idle-timeout.sh status
-sh /usr/share/argvus/power/sh/idle-timeout.sh 300
-
-sh /usr/share/argvus/power/sh/lock-dpms-toggle.sh status
-sh /usr/share/argvus/power/sh/lock-dpms-toggle.sh toggle
-```
-
-## Installation
-
-```sh
+sudo pacman -S --needed base-devel git shellcheck
+make validate
+make build
 make install
 ```
 
-Use `DESTDIR` for packaging:
-
-```sh
-make DESTDIR="$pkgdir" PREFIX=/usr install
-```
-
-## Validation
+`make build` creates a deterministic source archive in `build/artifacts/` and
+the package in `build/dist/`. For metadata only:
 
 ```sh
 make validate
-make DESTDIR=/tmp/argvus-power-dest PREFIX=/usr install
-makepkg --printsrcinfo
-git diff --check
+makepkg -p packaging/arch/ci/PKGBUILD --printsrcinfo
 ```
 
-`power-profiles-daemon` remains optional. Existing Waybar and Quickshell power
-profile controls use `powerprofilesctl` directly. `rofi` is the preferred menu
-launcher, `wofi` is supported as a fallback, and ImageMagick enables the blurred
-lock wallpaper generation.
+## Package payload
+
+This package owns the files below:
+
+```text
+/usr/share/argvus/power/config/hypridle.conf
+/usr/share/argvus/power/sh/hypr-power-menu.sh
+/usr/share/argvus/power/sh/idle-timeout.sh
+/usr/share/argvus/power/sh/lock-dpms-toggle.sh
+```
+
+The lock screen theme remains owned by `argvus-lock`; this package invokes it
+when available. `power-profiles-daemon` and ImageMagick remain optional.
+
+## Documentation
+
+- [DEVELOPMENT.md](DEVELOPMENT.md) — layout, checks and releases
+- [CONTRIBUTING.md](CONTRIBUTING.md) — contribution workflow
+- [SECURITY.md](SECURITY.md) — private vulnerability reports
+
+## License
+
+SPDX: `GPL-3.0-only`. See [LICENSE](LICENSE).
