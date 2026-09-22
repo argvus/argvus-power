@@ -1,6 +1,9 @@
 #!/usr/bin/env sh
 # Keep the graphical session awake by stopping ARGVUS hypridle.
 # Usage: keep-awake.sh [status|on|off|toggle]
+# shellcheck disable=SC1091
+
+. /usr/share/argvus/lib/i18n.sh
 
 set -eu
 
@@ -24,16 +27,24 @@ set_state() {
   fi
 }
 
+notify_state() {
+  state="$1"
+  notify-send "$(argvus_tr power keep_awake.title)" \
+    "$(argvus_tr power "keep_awake.$state")" 2>/dev/null || true
+}
+
 case "${1:-status}" in
   status)
     if status; then printf '%s\n' enabled; else printf '%s\n' disabled; fi
     ;;
-  on) set_state enabled; printf '%s\n' enabled ;;
-  off) set_state disabled; printf '%s\n' disabled ;;
+  on) set_state enabled; notify_state enabled; printf '%s\n' enabled ;;
+  off) set_state disabled; notify_state disabled; printf '%s\n' disabled ;;
   toggle)
-    if status; then set_state disabled; printf '%s\n' disabled
-    else set_state enabled; printf '%s\n' enabled
+    if status; then state=disabled; set_state "$state"
+    else state=enabled; set_state "$state"
     fi
+    notify_state "$state"
+    printf '%s\n' "$state"
     ;;
   *) printf 'Usage: %s [status|on|off|toggle]\n' "$0" >&2; exit 2 ;;
 esac
