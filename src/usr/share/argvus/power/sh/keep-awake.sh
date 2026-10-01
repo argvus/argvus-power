@@ -8,7 +8,7 @@
 set -eu
 
 ARGVUS_CONFIG_HOME="${ARGVUS_CONFIG_HOME:-${XDG_CONFIG_HOME:-$HOME/.config}}"
-STATE_DIR="$ARGVUS_CONFIG_HOME/argvus"
+STATE_DIR="$ARGVUS_CONFIG_HOME/argvus/data"
 STATE_FILE="$STATE_DIR/.keep-awake"
 
 status() {

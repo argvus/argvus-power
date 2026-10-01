@@ -15,7 +15,7 @@ ARGVUS_BOOTSTRAP="${ARGVUS_BOOTSTRAP:-${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}
 # shellcheck disable=SC2034
 ARGVUS_MUTABLE_CONFIG=1
 
-STATE_DIR="${ARGVUS_CONFIG_HOME}/argvus"
+STATE_DIR="${ARGVUS_CONFIG_HOME}/argvus/data"
 TIMEOUT_FILE="${STATE_DIR}/.idle-timeout"
 HYPRIDLE_FILE="$(paths_config power/config/hypridle.conf)"
 DEFAULT_TIMEOUT=300
