@@ -154,8 +154,8 @@ apply_timeout() {
 }
 
 refresh_runtime() {
-  command -v argvus-sessionctl >/dev/null 2>&1 || return 0
-  argvus-sessionctl restart hypridle >/dev/null 2>&1 || true
+  command -v argvus >/dev/null 2>&1 || return 0
+  argvus sessionctl restart hypridle >/dev/null 2>&1 || true
 }
 
 case "${1:-}" in

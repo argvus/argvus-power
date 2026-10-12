@@ -46,8 +46,8 @@ do_logout() {
     pkill -TERM -u "$(id -u)" -x hyprland >/dev/null 2>&1 && exit 0
   fi
 
-  if command -v argvus-sessionctl >/dev/null 2>&1; then
-    argvus-sessionctl stop >/dev/null 2>&1 || true
+  if command -v argvus >/dev/null 2>&1; then
+    argvus sessionctl stop >/dev/null 2>&1 || true
   fi
 
   if command -v hyprshutdown >/dev/null 2>&1; then
