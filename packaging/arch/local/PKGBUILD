@@ -6,7 +6,14 @@ pkgdesc="Power, shutdown and idle controls for the ARGVUS desktop."
 arch=('any')
 url="https://github.com/argvus/argvus-power"
 license=('GPL-3.0-only')
-depends=('argvus-lock' 'argvus-i18n' 'argvus-session' 'hypridle' 'hyprshutdown' 'systemd')
+depends=(
+  'argvus-lock'
+  'argvus'
+  'argvus-session'
+  'hypridle'
+  'hyprshutdown'
+  'systemd'
+)
 optdepends=(
   'imagemagick: blurred lock wallpaper generation'
   'power-profiles-daemon: Quickshell and Waybar power profile controls'
