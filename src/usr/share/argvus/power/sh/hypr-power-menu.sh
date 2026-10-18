@@ -27,14 +27,14 @@ do_lock() {
       "$HYPRLOCK_PATH"
   fi
   if [ "$(sh "$(paths_config power/sh/lock-dpms-toggle.sh)" status)" = "enabled" ]; then
-    (sleep 1; hyprctl dispatch 'hl.dsp.dpms({ action = "off" })') &
+    (sleep 1; argvus config hyprland dpms off) &
   fi
   exec hyprlock -c "$(paths_config lock/config/hyprlock.conf)"
 }
 
 do_logout() {
-  if command -v hyprctl >/dev/null 2>&1; then
-    hyprctl eval 'hl.dispatch(hl.dsp.exit())' >/dev/null 2>&1 && exit 0
+  if command -v argvus >/dev/null 2>&1; then
+    argvus config hyprland exit >/dev/null 2>&1 && exit 0
   fi
 
   if command -v loginctl >/dev/null 2>&1 && [ -n "${XDG_SESSION_ID:-}" ]; then
