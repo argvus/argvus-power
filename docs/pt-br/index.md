@@ -1,7 +1,6 @@
 ---
 title: Energia
 description: Gerencie energia, idle e keep-awake.
-slug: pt/0.4.0/docs/user-guide/hardware/power
 ---
 
 `argvus-power` integra ações de energia, timeout de idle, lock/DPMS e keep-awake à sessão. O Control Center e o Control Panel fornecem os controles. Use `--help` nos helpers instalados.
