@@ -19,7 +19,7 @@ the package in `build/dist/`. For metadata only:
 
 ```sh
 make validate
-makepkg -p packaging/arch/ci/PKGBUILD --printsrcinfo
+makepkg -p packaging/arch/remote/PKGBUILD --printsrcinfo
 ```
 
 ## Package payload

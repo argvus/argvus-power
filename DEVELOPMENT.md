@@ -3,7 +3,7 @@
 ## Project layout
 
 ```text
-packaging/arch/ci/       release PKGBUILD
+packaging/arch/remote/       release PKGBUILD
 packaging/arch/local/   working-tree PKGBUILD
 packaging/arch/common/  shared packaging functions
 src/                    installed package payload
@@ -25,5 +25,5 @@ release CI updates the checksum before building the tagged source archive.
 
 ## Release
 
-Set the release tag to the unchanged `pkgver` in `packaging/arch/ci/PKGBUILD`.
+Set the release tag to the unchanged `pkgver` in `packaging/arch/remote/PKGBUILD`.
 The release workflow builds and signs the package for the ARGVUS repository.
