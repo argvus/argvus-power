@@ -1,6 +1,6 @@
 # Arch packaging layout
 
-`local/PKGBUILD` builds the working tree through `make build`; `ci/PKGBUILD`
+`local/PKGBUILD` builds the working tree through `make build`; `remote/PKGBUILD`
 builds the tagged GitHub source archive. Their package metadata and payload
 behavior remain equivalent, while their source definitions differ.
 
