@@ -1,5 +1,5 @@
 ---
-title: Power
+title: طاقت
 description:              ۔ﮟﯾﺮﮐ ﻢﻈﻨﻣ ﻮﮐ ﺖﻟﺎﺣ ﯽﮐ ﮯﻨﮔﺎﺟ ﺭﻭﺍ ﮯﯾﻭﺭ ﻝﺎﻌﻓ ﺮﯿﻏ ،ﮞﻮﯿﺋﺍﻭﺭﺭﺎﮐ ﯽﮐ ﺖﻗﺎﻃ
 ---
 
@@ -15,8 +15,8 @@ Keep Awake is available in **Control Center → Power**, **Control Panel → Ses
 
 
 
-:::caution
+:::احتیاط
 
 :::
 
-Use the installed helpers and `argvus-config` `data/power/keep-awake`  `argvus-hypridle.service`  for their exact options. The session service list and restart commands are documented in [Services](/docs/reference/services/).
+ان کے درست اختیارات کے لیے انسٹال مددگار اور `argvus-config` `data/power/keep-awake` `argvus-hypridle.service` استعمال کریں۔ سیشن سروس لسٹ اور ری اسٹارٹ کمانڈز [Services](/docs/reference/services/) میں دستاویزی ہیں۔

@@ -1,5 +1,5 @@
 ---
-title: Power
+title: Sức mạnh
 description: Quản lý các hành động năng lượng, hành vi nhàn rỗi và chế độ giữ máy hoạt động.
 ---
 
@@ -15,6 +15,6 @@ Keep Awake có sẵn trong **Trung tâm điều khiển → Nguồn**, **Bảng 
 
 Khi được bật, Keep Awake ngăn chính sách nhàn rỗi ARGVUS khởi động các bộ hẹn giờ khóa màn hình và nguồn hiển thị tự động. Keep Awake là một tùy chọn `/power/keep_awake` liên tục: `argvus-config` dự án đánh dấu `data/power/keep-awake`, và khi tập tin đó được bật, phiên làm việc sẽ không khởi động `argvus-hypridle.service`. Vô hiệu hóa Keep Awake để khôi phục hành vi nhàn rỗi và khóa màn hình bình thường.
 
-:::caution
+:::thận trọng
 Nếu màn hình không tự động khóa, hãy kiểm tra xem tính năng Giữ Máy tỉnh táo có được bật hay không và tắt nó nếu cần.
 :::

@@ -1,5 +1,5 @@
 ---
-title: Power
+title: Kekuatan
 description: Mengelola tindakan daya, perilaku menganggur, dan mode tetap aktif.
 ---
 
@@ -15,6 +15,6 @@ Keep Awake tersedia di **Control Center → Power**, **Control Panel → Session
 
 Ketika diaktifkan, Tetap Terjaga mencegah kebijakan menganggur ARGVUS memulai penguncian layar otomatis dan penghitung daya tampilan. Tetap Terjaga adalah preferensi `/power/keep_awake` yang persisten: `argvus-config` memproyeksikan penanda `data/power/keep-awake`, dan saat file itu diaktifkan sesi tidak memulai `argvus-hypridle.service`. Nonaktifkan Tetap Terjaga untuk mengembalikan perilaku menganggur dan kunci normal.
 
-:::caution
+:::hati-hati
 Jika layar tidak terkunci secara otomatis, periksa apakah Tetap Terjaga diaktifkan dan nonaktifkan jika perlu.
 :::

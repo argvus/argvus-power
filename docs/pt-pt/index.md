@@ -13,6 +13,6 @@ Manter acordado está disponível em **Control Center → Power**, **Control Pan
 
 Quando ativado, Manter acordado impede que a política de ociosidade do ARGVUS inicie os temporizadores automáticos de bloqueio do ecrã e desligamento do display. Manter acordado é uma preferência persistente em `/power/keep_awake`: o `argvus-config` projeta o marcador `data/power/keep-awake` e, enquanto esse ficheiro estiver ativado, a sessão não inicia o `argvus-hypridle.service`. Desative Manter acordado para restaurar o comportamento normal de ociosidade e bloqueio.
 
-:::caution
+:::cuidado
 Se o ecrã não estiver bloqueando automaticamente, verifique se Manter acordado está ativado e desative-o se necessário.
 :::

@@ -1,5 +1,5 @@
 ---
-title: Power
+title: القوة
 description:                         .ﺎًﻈﻘﻴﺘﺴﻣ ءﺎﻘﺒﻟﺍ ﻊﺿﻭﻭ ﻝﻮﻤﺨﻟﺍ ﻙﻮﻠﺳ ،ﺔﻗﺎﻄﻟﺍ ﺕﺍءﺍﺮﺟﺇ ﺓﺭﺍﺩﺇ
 ---
 
@@ -15,8 +15,8 @@ description:                         .ﺎًﻈﻘﻴﺘﺴﻣ ءﺎﻘﺒﻟﺍ 
 
 
 
-:::caution
-.ﺮﻣﻷ﻿ﺍ ﻡﺰﻟ ﺍﺫﺇ ﻪﻠﻴﻄﻌﺘﺑ ﻢﻗﻭ ﺎًﻠﻌﻔﻣ ﺎًﻈﻘﻴﺘﺴﻣ ءﺎﻘﺒﻟﺍ ﺭﺎﻴﺧ ﻥﺎﻛ ﺍﺫﺇ ﺎﻤﻣ ﻖﻘﺤﺗ ،ﺎًﻴﺋﺎﻘﻠﺗ 
+::: الحذر
+.ﺮﻣﻷ﻿ﺍ ﻡﺰﻟ ﺍﺫﺇ ﻪﻠﻴﻄﻌﺘﺑ ﻢﻗﻭ ﺎًﻠﻌﻔﻣ ﺎًﻈﻘﻴﺘﺴﻣ ءﺎﻘﺒﻟﺍ ﺭﺎﻴﺧ ﻥﺎﻛ ﺍﺫﺇ ﺎﻤﻣ ﻖﻘﺤﺗ ،ﺎًﻴﺋﺎﻘﻠﺗ
 :::
 
-Use the installed helpers and `SUPER + ALT + W` `/power/keep_awake`  `argvus-config`  `data/power/keep-awake`  `argvus-hypridle.service`  for their exact options. The session service list and restart commands are documented in [Services](/docs/reference/services/).
+استخدم المساعدين المثبتين و`SUPER + ALT + W` `/power/keep_awake` `argvus-config` `data/power/keep-awake` `argvus-hypridle.service` للتعرف على خياراتهم الدقيقة. تم توثيق قائمة خدمة الجلسة وأوامر إعادة التشغيل في [Services](/docs/reference/services/).

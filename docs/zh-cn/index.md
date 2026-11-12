@@ -14,6 +14,6 @@ description: 管理电源操作、空闲行为和保持唤醒模式。
 
 启用后，保持唤醒会阻止 ARGVUS 空闲策略启动自动屏幕锁定和显示器电源计时器。保持唤醒是一个持久的 `/power/keep_awake` 偏好设置：`argvus-config` 会标记 `data/power/keep-awake` 文件，并且在该文件启用时，会话不会启动 `argvus-hypridle.service`。禁用保持唤醒即可恢复正常的空闲和锁定行为。
 
-:::caution
+:::注意
 如果屏幕没有自动锁定，请检查是否启用了保持唤醒，并在必要时将其禁用。
 :::

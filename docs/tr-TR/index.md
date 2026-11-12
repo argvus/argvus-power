@@ -1,5 +1,5 @@
 ---
-title: Power
+title: Güç
 description: Güç eylemlerini, boşta kalma davranışını ve sürekli uyandırma modunu yönetin.
 ---
 
@@ -15,6 +15,6 @@ Keep Awake, **Kontrol Merkezi → Güç**, **Kontrol Paneli → Oturum/Güç** v
 
 Etkinleştirildiğinde, Keep Awake ARGVUS boşta kalma politikasının otomatik ekran kilidi ve ekran güç zamanlayıcılarını başlatmasını engeller. Keep Awake kalıcı bir `/power/keep_awake` tercihtir: `argvus-config` işaretleyici `data/power/keep-awake` projeler ve bu dosya etkin olduğu sürece oturum `argvus-hypridle.service` başlatmaz. Normal boşta kalma ve kilit davranışını geri yüklemek için Keep Awake'i devre dışı bırakın.
 
-:::caution
+:::dikkat
 Ekran otomatik olarak kilitlenmiyorsa, Keep Awake'in etkin olup olmadığını kontrol edin ve gerekirse devre dışı bırakın.
 :::

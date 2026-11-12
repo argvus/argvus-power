@@ -14,6 +14,6 @@ Keep Awake ist verfügbar in **Kontrollzentrum → Stromversorgung**, **Systemst
 
 Wenn aktiviert, verhindert Keep Awake, dass die ARGVUS-Leerlaufrichtlinie die automatischen Sperr- und Display-Stromzeitschaltuhren startet. Keep Awake ist eine persistente `/power/keep_awake`-Einstellung: `argvus-config` projiziert den Marker `data/power/keep-awake`, und solange diese Datei aktiviert ist, startet die Sitzung `argvus-hypridle.service` nicht. Deaktivieren Sie Keep Awake, um das normale Leerlauf- und Sperrverhalten wiederherzustellen.
 
-:::caution
+:::Vorsicht
 Wenn der Bildschirm nicht automatisch gesperrt wird, überprüfen Sie, ob Keep Awake aktiviert ist, und deaktivieren Sie es bei Bedarf.
 :::

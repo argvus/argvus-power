@@ -14,6 +14,6 @@ Keep Awake è disponibile in **Centro di Controllo → Alimentazione**, **Pannel
 
 Quando è abilitato, Keep Awake impedisce alla politica di inattività ARGVUS di avviare i timer automatici di blocco dello schermo e di spegnimento del display. Keep Awake è una preferenza persistente di `/power/keep_awake`: `argvus-config` proietta il marcatore `data/power/keep-awake`, e finché quel file è abilitato la sessione non avvia `argvus-hypridle.service`. Disattiva Keep Awake per ripristinare il normale comportamento di inattività e di blocco.
 
-:::caution
+:::attenzione
 Se lo schermo non si blocca automaticamente, verifica se Keep Awake è abilitato e disabilitalo se necessario.
 :::

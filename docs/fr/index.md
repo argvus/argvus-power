@@ -14,6 +14,6 @@ Keep Awake est disponible dans **Centre de Contrôle → Alimentation**, **Panne
 
 Lorsqu'il est activé, Keep Awake empêche la politique d'inactivité ARGVUS de démarrer le verrouillage automatique de l'écran et les minuteries d'alimentation de l'affichage. Keep Awake est une préférence `/power/keep_awake` persistante : `argvus-config` projette le marqueur `data/power/keep-awake`, et tant que ce fichier est activé, la session ne démarre pas `argvus-hypridle.service`. Désactivez Keep Awake pour restaurer le comportement normal de veille et de verrouillage.
 
-:::caution
+:::attention
 Si l'écran ne se verrouille pas automatiquement, vérifiez si Keep Awake est activé et désactivez-le si nécessaire.
 :::
