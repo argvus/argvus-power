@@ -18,3 +18,7 @@ Ketika diaktifkan, Tetap Terjaga mencegah kebijakan menganggur ARGVUS memulai pe
 :::hati-hati
 Jika layar tidak terkunci secara otomatis, periksa apakah Tetap Terjaga diaktifkan dan nonaktifkan jika perlu.
 :::
+
+**ARGVUS Lifecycle** · `argvus-lifecycle` · `SUPER + Esc`
+
+Hypridle → `argvus lock` → Hyprlock

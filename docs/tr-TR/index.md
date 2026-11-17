@@ -18,3 +18,7 @@ Etkinleştirildiğinde, Keep Awake ARGVUS boşta kalma politikasının otomatik 
 :::dikkat
 Ekran otomatik olarak kilitlenmiyorsa, Keep Awake'in etkin olup olmadığını kontrol edin ve gerekirse devre dışı bırakın.
 :::
+
+**ARGVUS Lifecycle** · `argvus-lifecycle` · `SUPER + Esc`
+
+Hypridle → `argvus lock` → Hyprlock

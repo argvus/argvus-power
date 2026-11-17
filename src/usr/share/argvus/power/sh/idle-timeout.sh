@@ -118,7 +118,7 @@ normalize_timeout() {
 
 append_lock_listener() {
   cmd="$(lock_command)"
-  cmd="${cmd:-sh /usr/share/argvus/power/sh/hypr-power-menu.sh --lock}"
+  cmd="${cmd:-argvus lock}"
   cat >> "$HYPRIDLE_FILE" <<EOF
 
 # Screen-lock timer (managed by ARGVUS Control Center)

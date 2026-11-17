@@ -17,3 +17,7 @@ Keep Awake는 **제어 센터 → 전원**, **제어판 → 세션/전원**, 그
 :::주의
 화면이 자동으로 잠기지 않는 경우, Keep Awake가 활성화되어 있는지 확인하고 필요 시 비활성화하세요.
 :::
+
+**ARGVUS Lifecycle** · `argvus-lifecycle` · `SUPER + Esc`
+
+Hypridle → `argvus lock` → Hyprlock

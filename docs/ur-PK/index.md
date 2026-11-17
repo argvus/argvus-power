@@ -20,3 +20,7 @@ Keep Awake is available in **Control Center → Power**, **Control Panel → Ses
 :::
 
 ان کے درست اختیارات کے لیے انسٹال مددگار اور `argvus-config` `data/power/keep-awake` `argvus-hypridle.service` استعمال کریں۔ سیشن سروس لسٹ اور ری اسٹارٹ کمانڈز [Services](/docs/reference/services/) میں دستاویزی ہیں۔
+
+**ARGVUS Lifecycle** · `argvus-lifecycle` · `SUPER + Esc`
+
+Hypridle → `argvus lock` → Hyprlock

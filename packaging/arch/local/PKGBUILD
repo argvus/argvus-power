@@ -11,13 +11,10 @@ depends=(
   'argvus'
   'argvus-session'
   'hypridle'
-  'hyprshutdown'
   'systemd'
 )
 optdepends=(
-  'imagemagick: blurred lock wallpaper generation'
   'power-profiles-daemon: Quickshell and Waybar power profile controls'
-  'argvus-launcher: Rofi power menu theme integration'
 )
 options=('!debug')
 source=("${pkgname}-${pkgver}.tar.gz")

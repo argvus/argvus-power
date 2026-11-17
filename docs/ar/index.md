@@ -20,3 +20,7 @@ description:                         .ﺎًﻈﻘﻴﺘﺴﻣ ءﺎﻘﺒﻟﺍ 
 :::
 
 استخدم المساعدين المثبتين و`SUPER + ALT + W` `/power/keep_awake` `argvus-config` `data/power/keep-awake` `argvus-hypridle.service` للتعرف على خياراتهم الدقيقة. تم توثيق قائمة خدمة الجلسة وأوامر إعادة التشغيل في [Services](/docs/reference/services/).
+
+**ARGVUS Lifecycle** · `argvus-lifecycle` · `SUPER + Esc`
+
+Hypridle → `argvus lock` → Hyprlock

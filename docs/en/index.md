@@ -18,3 +18,7 @@ When enabled, Keep Awake prevents the ARGVUS idle policy from starting the autom
 :::caution
 If the screen does not lock automatically, check whether Keep Awake is enabled and disable it if necessary.
 :::
+
+**ARGVUS Lifecycle** · `argvus-lifecycle` · `SUPER + Esc`
+
+Hypridle → `argvus lock` → Hyprlock

@@ -18,3 +18,7 @@ Khi được bật, Keep Awake ngăn chính sách nhàn rỗi ARGVUS khởi đ�
 :::thận trọng
 Nếu màn hình không tự động khóa, hãy kiểm tra xem tính năng Giữ Máy tỉnh táo có được bật hay không và tắt nó nếu cần.
 :::
+
+**ARGVUS Lifecycle** · `argvus-lifecycle` · `SUPER + Esc`
+
+Hypridle → `argvus lock` → Hyprlock

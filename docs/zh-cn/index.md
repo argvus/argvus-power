@@ -17,3 +17,7 @@ description: 管理电源操作、空闲行为和保持唤醒模式。
 :::注意
 如果屏幕没有自动锁定，请检查是否启用了保持唤醒，并在必要时将其禁用。
 :::
+
+**ARGVUS Lifecycle** · `argvus-lifecycle` · `SUPER + Esc`
+
+Hypridle → `argvus lock` → Hyprlock

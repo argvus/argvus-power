@@ -17,3 +17,7 @@ Keep Awake доступен в **Центре управления → Пита�
 :::осторожно
 Если экран не блокируется автоматически, проверьте, включен ли Keep Awake, и при необходимости отключите его.
 :::
+
+**ARGVUS Lifecycle** · `argvus-lifecycle` · `SUPER + Esc`
+
+Hypridle → `argvus lock` → Hyprlock

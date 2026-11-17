@@ -17,3 +17,7 @@ Lorsqu'il est activé, Keep Awake empêche la politique d'inactivité ARGVUS de 
 :::attention
 Si l'écran ne se verrouille pas automatiquement, vérifiez si Keep Awake est activé et désactivez-le si nécessaire.
 :::
+
+**ARGVUS Lifecycle** · `argvus-lifecycle` · `SUPER + Esc`
+
+Hypridle → `argvus lock` → Hyprlock

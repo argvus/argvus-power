@@ -17,3 +17,7 @@ Quando è abilitato, Keep Awake impedisce alla politica di inattività ARGVUS di
 :::attenzione
 Se lo schermo non si blocca automaticamente, verifica se Keep Awake è abilitato e disabilitalo se necessario.
 :::
+
+**ARGVUS Lifecycle** · `argvus-lifecycle` · `SUPER + Esc`
+
+Hypridle → `argvus lock` → Hyprlock

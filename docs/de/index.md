@@ -17,3 +17,7 @@ Wenn aktiviert, verhindert Keep Awake, dass die ARGVUS-Leerlaufrichtlinie die au
 :::Vorsicht
 Wenn der Bildschirm nicht automatisch gesperrt wird, überprüfen Sie, ob Keep Awake aktiviert ist, und deaktivieren Sie es bei Bedarf.
 :::
+
+**ARGVUS Lifecycle** · `argvus-lifecycle` · `SUPER + Esc`
+
+Hypridle → `argvus lock` → Hyprlock

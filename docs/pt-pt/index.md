@@ -16,3 +16,7 @@ Quando ativado, Manter acordado impede que a política de ociosidade do ARGVUS i
 :::cuidado
 Se o ecrã não estiver bloqueando automaticamente, verifique se Manter acordado está ativado e desative-o se necessário.
 :::
+
+**ARGVUS Lifecycle** · `argvus-lifecycle` · `SUPER + Esc`
+
+Hypridle → `argvus lock` → Hyprlock

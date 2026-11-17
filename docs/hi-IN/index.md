@@ -18,3 +18,7 @@ description: पावर क्रियाओं का प्रबंधन 
 :::सावधानी
 यदि स्क्रीन अपने आप लॉक नहीं होती है, तो जांचें कि क्या Keep Awake सक्षम है और यदि आवश्यक हो तो इसे अक्षम करें।
 :::
+
+**ARGVUS Lifecycle** · `argvus-lifecycle` · `SUPER + Esc`
+
+Hypridle → `argvus lock` → Hyprlock

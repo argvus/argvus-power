@@ -18,3 +18,7 @@ Keep Awake পাওয়া যায় **Control Center → Power**, **Contr
 :::সাবধান
 যদি স্ক্রীন স্বয়ংক্রিয়ভাবে লক না হয়, তবে পরীক্ষা করুন যে Keep Awake সক্রিয় আছে কিনা এবং প্রয়োজন হলে এটি অক্ষম করুন।
 :::
+
+**ARGVUS Lifecycle** · `argvus-lifecycle` · `SUPER + Esc`
+
+Hypridle → `argvus lock` → Hyprlock

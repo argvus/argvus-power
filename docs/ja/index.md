@@ -17,3 +17,7 @@ Keep Awake は **コントロールセンター → 電源**、**コントロー
 :::注意
 スクリーンが自動でロックされない場合は、Keep Awake が有効になっていないか確認し、必要に応じて無効にしてください。
 :::
+
+**ARGVUS Lifecycle** · `argvus-lifecycle` · `SUPER + Esc`
+
+Hypridle → `argvus lock` → Hyprlock

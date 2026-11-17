@@ -35,6 +35,9 @@ make validate
 makepkg -p packaging/arch/remote/PKGBUILD --printsrcinfo
 ```
 
+Open ARGVUS Lifecycle with `SUPER + Esc`, the taskbar Power button, or
+`argvus-lifecycle`. The legacy menu command forwards to Lifecycle.
+
 ## Package payload
 
 This package owns the files below:
@@ -46,8 +49,9 @@ This package owns the files below:
 /usr/share/argvus/power/sh/lock-dpms-toggle.sh
 ```
 
-The lock screen theme remains owned by `argvus-lock`; this package invokes it
-when available. `power-profiles-daemon` and ImageMagick remain optional.
+The idle policy calls `argvus lock`. The `argvus-lock` package owns the
+Hyprlock preparation, and `argvus-power` owns the optional DPMS policy.
+`power-profiles-daemon` remains optional.
 
 ## Documentation
 
