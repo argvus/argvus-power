@@ -85,19 +85,6 @@ read_timeout() {
   printf '%s\n' "$DEFAULT_TIMEOUT"
 }
 
-select_timeout() {
-  rofi -config "$(paths_config launcher/config/config.rasi)" -dmenu \
-    -p "$(argvus_tr power idle.timeout.title)" -i \
-    -theme-str 'listview {lines: 6;}' <<EOF
-01 - $(argvus_tr power idle.timeout.one_minute)
-02 - $(argvus_tr power idle.timeout.minutes count=5)
-03 - $(argvus_tr power idle.timeout.minutes count=10)
-04 - $(argvus_tr power idle.timeout.minutes count=15)
-05 - $(argvus_tr power idle.timeout.minutes count=30)
-06 - $(argvus_tr power idle.timeout.never)
-EOF
-}
-
 normalize_timeout() {
   case "$1" in
     0|0m|0min|*"Never"|*"Nunca"|06*)
@@ -168,8 +155,7 @@ case "${1:-}" in
     REQUESTED="$(read_timeout)"
     ;;
   '')
-    REQUESTED="$(select_timeout)"
-    [ -n "$REQUESTED" ] || exit 0
+    exec argvus idle-timeout
     ;;
   *)
     REQUESTED="$1"

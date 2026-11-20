@@ -21,3 +21,5 @@ Si l'écran ne se verrouille pas automatiquement, vérifiez si Keep Awake est ac
 **ARGVUS Lifecycle** · `argvus-lifecycle` · `SUPER + Esc`
 
 Hypridle → `argvus lock` → Hyprlock
+
+**ARGVUS Délai de verrouillage** · `argvus idle-timeout` · `Super + Shift + L` · `↑` `↓` (Naviguer) · `Enter` (Sélectionner) · `Esc` (Fermer)

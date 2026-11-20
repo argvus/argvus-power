@@ -22,3 +22,5 @@ If the screen does not lock automatically, check whether Keep Awake is enabled a
 **ARGVUS Lifecycle** · `argvus-lifecycle` · `SUPER + Esc`
 
 Hypridle → `argvus lock` → Hyprlock
+
+**ARGVUS Lock Timeout** · `argvus idle-timeout` · `Super + Shift + L` · `↑` `↓` (Navigate) · `Enter` (Select) · `Esc` (Close)

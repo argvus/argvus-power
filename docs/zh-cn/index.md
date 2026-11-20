@@ -21,3 +21,5 @@ description: 管理电源操作、空闲行为和保持唤醒模式。
 **ARGVUS Lifecycle** · `argvus-lifecycle` · `SUPER + Esc`
 
 Hypridle → `argvus lock` → Hyprlock
+
+**ARGVUS 锁屏等待时间** · `argvus idle-timeout` · `Super + Shift + L` · `↑` `↓` (导航) · `Enter` (选择) · `Esc` (关闭)

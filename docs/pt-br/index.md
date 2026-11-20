@@ -20,3 +20,5 @@ Se a tela não estiver bloqueando automaticamente, verifique se Manter acordado 
 **ARGVUS Lifecycle** · `argvus-lifecycle` · `SUPER + Esc`
 
 Hypridle → `argvus lock` → Hyprlock
+
+**ARGVUS Tempo de bloqueio** · `argvus idle-timeout` · `Super + Shift + L` · `↑` `↓` (Navegar) · `Enter` (Selecionar) · `Esc` (Fechar)

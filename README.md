@@ -49,6 +49,8 @@ This package owns the files below:
 /usr/share/argvus/power/sh/lock-dpms-toggle.sh
 ```
 
+Open **ARGVUS Lock Timeout** with `argvus idle-timeout` or `Super + Shift + L`. The picker saves the same inactivity lock setting as Control Center.
+
 The idle policy calls `argvus lock`. The `argvus-lock` package owns the
 Hyprlock preparation, and `argvus-power` owns the optional DPMS policy.
 `power-profiles-daemon` remains optional.

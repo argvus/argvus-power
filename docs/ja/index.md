@@ -21,3 +21,5 @@ Keep Awake は **コントロールセンター → 電源**、**コントロー
 **ARGVUS Lifecycle** · `argvus-lifecycle` · `SUPER + Esc`
 
 Hypridle → `argvus lock` → Hyprlock
+
+**ARGVUS ロックまでの時間** · `argvus idle-timeout` · `Super + Shift + L` · `↑` `↓` (移動) · `Enter` (選択) · `Esc` (閉じる)

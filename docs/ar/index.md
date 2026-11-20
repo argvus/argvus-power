@@ -24,3 +24,5 @@ description:                         .ﺎًﻈﻘﻴﺘﺴﻣ ءﺎﻘﺒﻟﺍ 
 **ARGVUS Lifecycle** · `argvus-lifecycle` · `SUPER + Esc`
 
 Hypridle → `argvus lock` → Hyprlock
+
+**ARGVUS مهلة القفل** · `argvus idle-timeout` · `Super + Shift + L` · `↑` `↓` (التنقل) · `Enter` (اختيار) · `Esc` (إغلاق)

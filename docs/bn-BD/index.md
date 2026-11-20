@@ -22,3 +22,5 @@ Keep Awake পাওয়া যায় **Control Center → Power**, **Contr
 **ARGVUS Lifecycle** · `argvus-lifecycle` · `SUPER + Esc`
 
 Hypridle → `argvus lock` → Hyprlock
+
+**ARGVUS লকের সময়সীমা** · `argvus idle-timeout` · `Super + Shift + L` · `↑` `↓` (নেভিগেট করুন) · `Enter` (নির্বাচন) · `Esc` (বন্ধ করুন)

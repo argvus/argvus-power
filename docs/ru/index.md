@@ -21,3 +21,5 @@ Keep Awake доступен в **Центре управления → Пита�
 **ARGVUS Lifecycle** · `argvus-lifecycle` · `SUPER + Esc`
 
 Hypridle → `argvus lock` → Hyprlock
+
+**ARGVUS Время до блокировки** · `argvus idle-timeout` · `Super + Shift + L` · `↑` `↓` (Навигация) · `Enter` (Выбрать) · `Esc` (Закрыть)

@@ -22,3 +22,5 @@ Nếu màn hình không tự động khóa, hãy kiểm tra xem tính năng Gi�
 **ARGVUS Lifecycle** · `argvus-lifecycle` · `SUPER + Esc`
 
 Hypridle → `argvus lock` → Hyprlock
+
+**ARGVUS Thời gian chờ khóa** · `argvus idle-timeout` · `Super + Shift + L` · `↑` `↓` (Điều hướng) · `Enter` (Chọn) · `Esc` (Đóng)

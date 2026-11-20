@@ -22,3 +22,5 @@ description: पावर क्रियाओं का प्रबंधन 
 **ARGVUS Lifecycle** · `argvus-lifecycle` · `SUPER + Esc`
 
 Hypridle → `argvus lock` → Hyprlock
+
+**ARGVUS लॉक होने का समय** · `argvus idle-timeout` · `Super + Shift + L` · `↑` `↓` (नेविगेट करें) · `Enter` (चुनें) · `Esc` (बंद करें)

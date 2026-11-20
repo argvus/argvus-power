@@ -22,3 +22,5 @@ Jika layar tidak terkunci secara otomatis, periksa apakah Tetap Terjaga diaktifk
 **ARGVUS Lifecycle** · `argvus-lifecycle` · `SUPER + Esc`
 
 Hypridle → `argvus lock` → Hyprlock
+
+**ARGVUS Waktu tunggu penguncian** · `argvus idle-timeout` · `Super + Shift + L` · `↑` `↓` (Navigasi) · `Enter` (Pilih) · `Esc` (Tutup)

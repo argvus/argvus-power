@@ -24,3 +24,5 @@ Keep Awake is available in **Control Center → Power**, **Control Panel → Ses
 **ARGVUS Lifecycle** · `argvus-lifecycle` · `SUPER + Esc`
 
 Hypridle → `argvus lock` → Hyprlock
+
+**ARGVUS لاک کی مہلت** · `argvus idle-timeout` · `Super + Shift + L` · `↑` `↓` (نیویگیٹ کریں) · `Enter` (منتخب کریں) · `Esc` (بند کریں)

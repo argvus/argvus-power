@@ -22,3 +22,5 @@ Ekran otomatik olarak kilitlenmiyorsa, Keep Awake'in etkin olup olmadığını k
 **ARGVUS Lifecycle** · `argvus-lifecycle` · `SUPER + Esc`
 
 Hypridle → `argvus lock` → Hyprlock
+
+**ARGVUS Kilit zaman aşımı** · `argvus idle-timeout` · `Super + Shift + L` · `↑` `↓` (Gezin) · `Enter` (Seç) · `Esc` (Kapat)

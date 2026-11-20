@@ -21,3 +21,5 @@ Wenn der Bildschirm nicht automatisch gesperrt wird, überprüfen Sie, ob Keep A
 **ARGVUS Lifecycle** · `argvus-lifecycle` · `SUPER + Esc`
 
 Hypridle → `argvus lock` → Hyprlock
+
+**ARGVUS Sperrzeit** · `argvus idle-timeout` · `Super + Shift + L` · `↑` `↓` (Navigieren) · `Enter` (Auswählen) · `Esc` (Schließen)

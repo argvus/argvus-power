@@ -21,3 +21,5 @@ Se lo schermo non si blocca automaticamente, verifica se Keep Awake è abilitato
 **ARGVUS Lifecycle** · `argvus-lifecycle` · `SUPER + Esc`
 
 Hypridle → `argvus lock` → Hyprlock
+
+**ARGVUS Tempo di blocco** · `argvus idle-timeout` · `Super + Shift + L` · `↑` `↓` (Naviga) · `Enter` (Seleziona) · `Esc` (Chiudi)
