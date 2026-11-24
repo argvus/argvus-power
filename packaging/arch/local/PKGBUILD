@@ -14,7 +14,7 @@ depends=(
   'systemd'
 )
 optdepends=(
-  'power-profiles-daemon: Quickshell and Waybar power profile controls'
+  'power-profiles-daemon: Quickshell and Taskbar power profile controls'
 )
 options=('!debug')
 source=("${pkgname}-${pkgver}.tar.gz")
