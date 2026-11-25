@@ -12,7 +12,7 @@ Verwenden Sie **Kontrollzentrum → Energie** für die verfügbaren Seiten zur E
 
 Keep Awake ist verfügbar in **Kontrollzentrum → Stromversorgung**, **Systemsteuerung → Sitzung/Stromversorgung** und über `SUPER + ALT + W`. Die Steuerungen teilen denselben Sitzungszustand, sodass eine Änderung auf einer Oberfläche das Verhalten der anderen aktualisiert. Jede Aktivierung oder Deaktivierung zeigt eine Benachrichtigung an.
 
-Wenn aktiviert, verhindert Keep Awake, dass die ARGVUS-Leerlaufrichtlinie die automatischen Sperr- und Display-Stromzeitschaltuhren startet. Keep Awake ist eine persistente `/power/keep_awake`-Einstellung: `argvus-config` projiziert den Marker `data/power/keep-awake`, und solange diese Datei aktiviert ist, startet die Sitzung `argvus-hypridle.service` nicht. Deaktivieren Sie Keep Awake, um das normale Leerlauf- und Sperrverhalten wiederherzustellen.
+Wenn aktiviert, verhindert Keep Awake, dass die ARGVUS-Leerlaufrichtlinie die automatischen Sperr- und Display-Stromzeitschaltuhren startet. Keep Awake ist eine persistente `/power/keep_awake`-Einstellung: `argvus-config` projiziert den Marker `data/power/.keep-awake`, und solange diese Datei aktiviert ist, startet die Sitzung `argvus-hypridle.service` nicht. Deaktivieren Sie Keep Awake, um das normale Leerlauf- und Sperrverhalten wiederherzustellen.
 
 :::Vorsicht
 Wenn der Bildschirm nicht automatisch gesperrt wird, überprüfen Sie, ob Keep Awake aktiviert ist, und deaktivieren Sie es bei Bedarf.
@@ -23,3 +23,5 @@ Wenn der Bildschirm nicht automatisch gesperrt wird, überprüfen Sie, ob Keep A
 Hypridle → `argvus lock` → Hyprlock
 
 **ARGVUS Sperrzeit** · `argvus idle-timeout` · `Super + Shift + L` · `↑` `↓` (Navigieren) · `Enter` (Auswählen) · `Esc` (Schließen)
+
+Die Bedienelemente speichern die Einstellung vor der Anwendung auf Hypridle. Nach einem Fehler oder Abbruch kann die Anwendung ausstehen. Prüfen Sie `argvus keep-awake status-json` und wiederholen Sie den Vorgang mit `on` oder `off`. `data/.keep-awake` bleibt aus Kompatibilitätsgründen erhalten.

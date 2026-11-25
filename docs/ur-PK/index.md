@@ -11,7 +11,7 @@ description:              ۔ﮟﯾﺮﮐ ﻢﻈﻨﻣ ﻮﮐ ﺖﻟﺎﺣ ﯽﮐ
 
 ## ﮟﯿﮨﺭ ﮯﺗﺎﮕﺟ
 
-Keep Awake is available in **Control Center → Power**, **Control Panel → Session/Power**, and through  `--help` `SUPER + ALT + W` argvus-hypridle.service  data/power/keep-awake  argvus-config  `/power/keep_awake` . The controls share the same session state, so changing it in one surface updates the behavior of the others. Each activation or deactivation displays a notification.
+Keep Awake is available in **Control Center → Power**, **Control Panel → Session/Power**, and through  `--help` `SUPER + ALT + W` argvus-hypridle.service  data/power/.keep-awake  argvus-config  `/power/keep_awake` . The controls share the same session state, so changing it in one surface updates the behavior of the others. Each activation or deactivation displays a notification.
 
 
 
@@ -19,10 +19,12 @@ Keep Awake is available in **Control Center → Power**, **Control Panel → Ses
 
 :::
 
-ان کے درست اختیارات کے لیے انسٹال مددگار اور `argvus-config` `data/power/keep-awake` `argvus-hypridle.service` استعمال کریں۔ سیشن سروس لسٹ اور ری اسٹارٹ کمانڈز [Services](/docs/reference/services/) میں دستاویزی ہیں۔
+ان کے درست اختیارات کے لیے انسٹال مددگار اور `argvus-config` `data/power/.keep-awake` `argvus-hypridle.service` استعمال کریں۔ سیشن سروس لسٹ اور ری اسٹارٹ کمانڈز [Services](/docs/reference/services/) میں دستاویزی ہیں۔
 
 **ARGVUS Lifecycle** · `argvus-lifecycle` · `SUPER + Esc`
 
 Hypridle → `argvus lock` → Hyprlock
 
 **ARGVUS لاک کی مہلت** · `argvus idle-timeout` · `Super + Shift + L` · `↑` `↓` (نیویگیٹ کریں) · `Enter` (منتخب کریں) · `Esc` (بند کریں)
+
+ترجیح Hypridle پر لاگو کرنے سے پہلے محفوظ ہوتی ہے۔ ناکامی یا تعطل کے بعد اطلاق زیر التوا رہ سکتا ہے۔ `argvus keep-awake status-json` سے جانچیں اور `on` یا `off` سے دوبارہ کوشش کریں۔ مطابقت کے لیے `data/.keep-awake` برقرار رہتی ہے۔

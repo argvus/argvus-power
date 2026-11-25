@@ -11,7 +11,7 @@ Use **Control Center → Power** para as páginas de política de energia e sess
 
 Manter acordado está disponível em **Control Center → Power**, **Control Panel → Sessão/Energia** e pelo atalho `SUPER + ALT + W`. Os controles compartilham o mesmo estado da sessão; portanto, alterar a opção em uma superfície atualiza o comportamento das outras. Cada ativação ou desativação exibe uma notificação.
 
-Quando ativado, Manter acordado impede que a política de ociosidade do ARGVUS inicie os temporizadores automáticos de bloqueio do ecrã e desligamento do display. Manter acordado é uma preferência persistente em `/power/keep_awake`: o `argvus-config` projeta o marcador `data/power/keep-awake` e, enquanto esse ficheiro estiver ativado, a sessão não inicia o `argvus-hypridle.service`. Desative Manter acordado para restaurar o comportamento normal de ociosidade e bloqueio.
+Quando ativado, Manter acordado impede que a política de ociosidade do ARGVUS inicie os temporizadores automáticos de bloqueio do ecrã e desligamento do display. Manter acordado é uma preferência persistente em `/power/keep_awake`: o `argvus-config` projeta o marcador `data/power/.keep-awake` e, enquanto esse ficheiro estiver ativado, a sessão não inicia o `argvus-hypridle.service`. Desative Manter acordado para restaurar o comportamento normal de ociosidade e bloqueio.
 
 :::cuidado
 Se o ecrã não estiver bloqueando automaticamente, verifique se Manter acordado está ativado e desative-o se necessário.
@@ -22,3 +22,5 @@ Se o ecrã não estiver bloqueando automaticamente, verifique se Manter acordado
 Hypridle → `argvus lock` → Hyprlock
 
 **ARGVUS Tempo de bloqueio** · `argvus idle-timeout` · `Super + Shift + L` · `↑` `↓` (Navegar) · `Enter` (Selecionar) · `Esc` (Fechar)
+
+Todos os controlos guardam a preferência solicitada antes de a aplicar ao Hypridle. Uma falha ou interrupção pode deixar a aplicação pendente. Consulte `argvus keep-awake status-json` e tente novamente com `on` ou `off`. O ficheiro antigo `data/.keep-awake` é mantido por compatibilidade.

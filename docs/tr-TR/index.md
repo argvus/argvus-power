@@ -13,7 +13,7 @@ Kurulu yardımcıları ve `--help`'yi tam seçenekleri için kullanın. Oturum h
 
 Keep Awake, **Kontrol Merkezi → Güç**, **Kontrol Paneli → Oturum/Güç** ve `SUPER + ALT + W` üzerinden kullanılabilir. Kontroller aynı oturum durumunu paylaşır, bu yüzden bir yüzeyde bunu değiştirmek diğerlerinin davranışını günceller. Her etkinleştirme veya devre dışı bırakma bir bildirim gösterir.
 
-Etkinleştirildiğinde, Keep Awake ARGVUS boşta kalma politikasının otomatik ekran kilidi ve ekran güç zamanlayıcılarını başlatmasını engeller. Keep Awake kalıcı bir `/power/keep_awake` tercihtir: `argvus-config` işaretleyici `data/power/keep-awake` projeler ve bu dosya etkin olduğu sürece oturum `argvus-hypridle.service` başlatmaz. Normal boşta kalma ve kilit davranışını geri yüklemek için Keep Awake'i devre dışı bırakın.
+Etkinleştirildiğinde, Keep Awake ARGVUS boşta kalma politikasının otomatik ekran kilidi ve ekran güç zamanlayıcılarını başlatmasını engeller. Keep Awake kalıcı bir `/power/keep_awake` tercihtir: `argvus-config` işaretleyici `data/power/.keep-awake` projeler ve bu dosya etkin olduğu sürece oturum `argvus-hypridle.service` başlatmaz. Normal boşta kalma ve kilit davranışını geri yüklemek için Keep Awake'i devre dışı bırakın.
 
 :::dikkat
 Ekran otomatik olarak kilitlenmiyorsa, Keep Awake'in etkin olup olmadığını kontrol edin ve gerekirse devre dışı bırakın.
@@ -24,3 +24,5 @@ Ekran otomatik olarak kilitlenmiyorsa, Keep Awake'in etkin olup olmadığını k
 Hypridle → `argvus lock` → Hyprlock
 
 **ARGVUS Kilit zaman aşımı** · `argvus idle-timeout` · `Super + Shift + L` · `↑` `↓` (Gezin) · `Enter` (Seç) · `Esc` (Kapat)
+
+Tercih Hypridle’a uygulanmadan önce kaydedilir. Hata veya kesinti uygulamayı beklemede bırakabilir. `argvus keep-awake status-json` ile kontrol edin ve `on` veya `off` ile yeniden deneyin. Uyumluluk için `data/.keep-awake` korunur.

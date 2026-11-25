@@ -13,7 +13,7 @@ Use **Control Center → Power** for the available power/session policy pages an
 
 Keep Awake is available in **Control Center → Power**, **Control Panel → Session/Power**, and through `SUPER + ALT + W`. The controls share the same session state, so changing it in one surface updates the behavior of the others. Each activation or deactivation displays a notification.
 
-When enabled, Keep Awake prevents the ARGVUS idle policy from starting the automatic screen-lock and display-power timers. Keep Awake is a persistent `/power/keep_awake` preference: `argvus-config` projects the marker `data/power/keep-awake`, and while that file is enabled the session does not start `argvus-hypridle.service`. Disable Keep Awake to restore the normal idle and lock behavior.
+When enabled, Keep Awake prevents the ARGVUS idle policy from starting the automatic screen-lock and display-power timers. Keep Awake is a persistent `/power/keep_awake` preference: `argvus-config` projects the marker `data/power/.keep-awake`, and while that file is enabled the session does not start `argvus-hypridle.service`. Disable Keep Awake to restore the normal idle and lock behavior.
 
 :::caution
 If the screen does not lock automatically, check whether Keep Awake is enabled and disable it if necessary.
@@ -24,3 +24,5 @@ If the screen does not lock automatically, check whether Keep Awake is enabled a
 Hypridle → `argvus lock` → Hyprlock
 
 **ARGVUS Lock Timeout** · `argvus idle-timeout` · `Super + Shift + L` · `↑` `↓` (Navigate) · `Enter` (Select) · `Esc` (Close)
+
+All controls save the requested preference before applying it to Hypridle. A failed or interrupted operation may leave a saved request pending. Use `argvus keep-awake status-json` to inspect it and retry explicitly with `on` or `off`. The older `data/.keep-awake` file is retained for compatibility.

@@ -12,7 +12,7 @@ description: 電源操作、アイドル動作、常時起動モードを管理�
 
 Keep Awake は **コントロールセンター → 電源**、**コントロールパネル → セッション/電源**、および `SUPER + ALT + W` から利用可能です。このコントロールは同じセッション状態を共有しているため、どれか一つの画面で変更すると他の画面の動作も更新されます。有効化または無効化するたびに通知が表示されます。
 
-有効にすると、Keep Awake は ARGVUS のアイドルポリシーが自動スクリーンロックやディスプレイ電源タイマーを開始するのを防ぎます。Keep Awake は永続的な `/power/keep_awake` の設定であり、`argvus-config` は `data/power/keep-awake` マーカーをプロジェクト化し、そのファイルが有効な間はセッションは `argvus-hypridle.service` を開始しません。通常のアイドルおよびロック動作を復元するには、Keep Awake を無効にしてください。
+有効にすると、Keep Awake は ARGVUS のアイドルポリシーが自動スクリーンロックやディスプレイ電源タイマーを開始するのを防ぎます。Keep Awake は永続的な `/power/keep_awake` の設定であり、`argvus-config` は `data/power/.keep-awake` マーカーをプロジェクト化し、そのファイルが有効な間はセッションは `argvus-hypridle.service` を開始しません。通常のアイドルおよびロック動作を復元するには、Keep Awake を無効にしてください。
 
 :::注意
 スクリーンが自動でロックされない場合は、Keep Awake が有効になっていないか確認し、必要に応じて無効にしてください。
@@ -23,3 +23,5 @@ Keep Awake は **コントロールセンター → 電源**、**コントロー
 Hypridle → `argvus lock` → Hyprlock
 
 **ARGVUS ロックまでの時間** · `argvus idle-timeout` · `Super + Shift + L` · `↑` `↓` (移動) · `Enter` (選択) · `Esc` (閉じる)
+
+設定は Hypridle に適用する前に保存されます。失敗や中断後は適用が保留される場合があります。`argvus keep-awake status-json` で確認し、`on` または `off` で再試行してください。互換性のため `data/.keep-awake` は保持されます。

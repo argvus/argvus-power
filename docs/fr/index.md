@@ -12,7 +12,7 @@ Utilisez **Centre de Contrôle → Alimentation** pour les pages de politique d'
 
 Keep Awake est disponible dans **Centre de Contrôle → Alimentation**, **Panneau de Configuration → Session/Alimentation**, et via `SUPER + ALT + W`. Les contrôles partagent le même état de session, donc le modifier sur une interface met à jour le comportement des autres. Chaque activation ou désactivation affiche une notification.
 
-Lorsqu'il est activé, Keep Awake empêche la politique d'inactivité ARGVUS de démarrer le verrouillage automatique de l'écran et les minuteries d'alimentation de l'affichage. Keep Awake est une préférence `/power/keep_awake` persistante : `argvus-config` projette le marqueur `data/power/keep-awake`, et tant que ce fichier est activé, la session ne démarre pas `argvus-hypridle.service`. Désactivez Keep Awake pour restaurer le comportement normal de veille et de verrouillage.
+Lorsqu'il est activé, Keep Awake empêche la politique d'inactivité ARGVUS de démarrer le verrouillage automatique de l'écran et les minuteries d'alimentation de l'affichage. Keep Awake est une préférence `/power/keep_awake` persistante : `argvus-config` projette le marqueur `data/power/.keep-awake`, et tant que ce fichier est activé, la session ne démarre pas `argvus-hypridle.service`. Désactivez Keep Awake pour restaurer le comportement normal de veille et de verrouillage.
 
 :::attention
 Si l'écran ne se verrouille pas automatiquement, vérifiez si Keep Awake est activé et désactivez-le si nécessaire.
@@ -23,3 +23,5 @@ Si l'écran ne se verrouille pas automatiquement, vérifiez si Keep Awake est ac
 Hypridle → `argvus lock` → Hyprlock
 
 **ARGVUS Délai de verrouillage** · `argvus idle-timeout` · `Super + Shift + L` · `↑` `↓` (Naviguer) · `Enter` (Sélectionner) · `Esc` (Fermer)
+
+Les commandes enregistrent la préférence avant de l’appliquer à Hypridle. Un échec ou une interruption peut laisser l’application en attente. Consultez `argvus keep-awake status-json` et réessayez avec `on` ou `off`. Le fichier `data/.keep-awake` est conservé pour la compatibilité.

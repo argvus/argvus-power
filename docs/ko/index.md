@@ -12,7 +12,7 @@ description: 전원 동작, 대기 행동 및 항상 켜짐 모드를 관리합�
 
 Keep Awake는 **제어 센터 → 전원**, **제어판 → 세션/전원**, 그리고 `SUPER + ALT + W`를 통해 사용할 수 있습니다. 이 컨트롤들은 동일한 세션 상태를 공유하므로 한 곳에서 변경하면 다른 곳의 동작도 업데이트됩니다. 각 활성화 또는 비활성화 시 알림이 표시됩니다.
 
-활성화되면 Keep Awake는 ARGVUS 유휴 정책이 자동 화면 잠금 및 디스플레이 전원 타이머를 시작하지 못하도록 방지합니다. Keep Awake는 지속적인 `/power/keep_awake` 설정으로, `argvus-config`가 `data/power/keep-awake` 표시기를 생성하고 해당 파일이 활성화되어 있는 동안 세션은 `argvus-hypridle.service`을 시작하지 않습니다. Keep Awake를 비활성화하면 정상적인 유휴 및 잠금 동작을 복원할 수 있습니다.
+활성화되면 Keep Awake는 ARGVUS 유휴 정책이 자동 화면 잠금 및 디스플레이 전원 타이머를 시작하지 못하도록 방지합니다. Keep Awake는 지속적인 `/power/keep_awake` 설정으로, `argvus-config`가 `data/power/.keep-awake` 표시기를 생성하고 해당 파일이 활성화되어 있는 동안 세션은 `argvus-hypridle.service`을 시작하지 않습니다. Keep Awake를 비활성화하면 정상적인 유휴 및 잠금 동작을 복원할 수 있습니다.
 
 :::주의
 화면이 자동으로 잠기지 않는 경우, Keep Awake가 활성화되어 있는지 확인하고 필요 시 비활성화하세요.
@@ -23,3 +23,5 @@ Keep Awake는 **제어 센터 → 전원**, **제어판 → 세션/전원**, 그
 Hypridle → `argvus lock` → Hyprlock
 
 **ARGVUS 잠금 대기 시간** · `argvus idle-timeout` · `Super + Shift + L` · `↑` `↓` (이동) · `Enter` (선택) · `Esc` (닫기)
+
+Hypridle에 적용하기 전에 요청한 설정을 저장합니다. 실패하거나 중단되면 적용이 보류될 수 있습니다. `argvus keep-awake status-json`으로 확인하고 `on` 또는 `off`로 다시 시도하세요. 호환성을 위해 `data/.keep-awake`를 유지합니다.

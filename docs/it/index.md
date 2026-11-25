@@ -12,7 +12,7 @@ Usa **Centro di Controllo → Alimentazione** per le pagine delle politiche di a
 
 Keep Awake è disponibile in **Centro di Controllo → Alimentazione**, **Pannello di Controllo → Sessione/Alimentazione**, e tramite `SUPER + ALT + W`. I controlli condividono lo stesso stato della sessione, quindi modificarlo in una superficie aggiorna il comportamento delle altre. Ogni attivazione o disattivazione mostra una notifica.
 
-Quando è abilitato, Keep Awake impedisce alla politica di inattività ARGVUS di avviare i timer automatici di blocco dello schermo e di spegnimento del display. Keep Awake è una preferenza persistente di `/power/keep_awake`: `argvus-config` proietta il marcatore `data/power/keep-awake`, e finché quel file è abilitato la sessione non avvia `argvus-hypridle.service`. Disattiva Keep Awake per ripristinare il normale comportamento di inattività e di blocco.
+Quando è abilitato, Keep Awake impedisce alla politica di inattività ARGVUS di avviare i timer automatici di blocco dello schermo e di spegnimento del display. Keep Awake è una preferenza persistente di `/power/keep_awake`: `argvus-config` proietta il marcatore `data/power/.keep-awake`, e finché quel file è abilitato la sessione non avvia `argvus-hypridle.service`. Disattiva Keep Awake per ripristinare il normale comportamento di inattività e di blocco.
 
 :::attenzione
 Se lo schermo non si blocca automaticamente, verifica se Keep Awake è abilitato e disabilitalo se necessario.
@@ -23,3 +23,5 @@ Se lo schermo non si blocca automaticamente, verifica se Keep Awake è abilitato
 Hypridle → `argvus lock` → Hyprlock
 
 **ARGVUS Tempo di blocco** · `argvus idle-timeout` · `Super + Shift + L` · `↑` `↓` (Naviga) · `Enter` (Seleziona) · `Esc` (Chiudi)
+
+I controlli salvano la preferenza prima di applicarla a Hypridle. Un errore o un’interruzione può lasciare l’applicazione in sospeso. Consultare `argvus keep-awake status-json` e riprovare con `on` o `off`. Il file `data/.keep-awake` è conservato per compatibilità.

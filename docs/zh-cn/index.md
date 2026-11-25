@@ -12,7 +12,7 @@ description: 管理电源操作、空闲行为和保持唤醒模式。
 
 保持唤醒可在 **控制中心 → 电源**、**控制面板 → 会话/电源** 中找到，也可以通过 `SUPER + ALT + W` 访问。这些控制共享相同的会话状态，因此在一个界面更改时，会更新其他界面的行为。每次启用或禁用都会显示通知。
 
-启用后，保持唤醒会阻止 ARGVUS 空闲策略启动自动屏幕锁定和显示器电源计时器。保持唤醒是一个持久的 `/power/keep_awake` 偏好设置：`argvus-config` 会标记 `data/power/keep-awake` 文件，并且在该文件启用时，会话不会启动 `argvus-hypridle.service`。禁用保持唤醒即可恢复正常的空闲和锁定行为。
+启用后，保持唤醒会阻止 ARGVUS 空闲策略启动自动屏幕锁定和显示器电源计时器。保持唤醒是一个持久的 `/power/keep_awake` 偏好设置：`argvus-config` 会标记 `data/power/.keep-awake` 文件，并且在该文件启用时，会话不会启动 `argvus-hypridle.service`。禁用保持唤醒即可恢复正常的空闲和锁定行为。
 
 :::注意
 如果屏幕没有自动锁定，请检查是否启用了保持唤醒，并在必要时将其禁用。
@@ -23,3 +23,5 @@ description: 管理电源操作、空闲行为和保持唤醒模式。
 Hypridle → `argvus lock` → Hyprlock
 
 **ARGVUS 锁屏等待时间** · `argvus idle-timeout` · `Super + Shift + L` · `↑` `↓` (导航) · `Enter` (选择) · `Esc` (关闭)
+
+系统先保存请求的设置，再应用到 Hypridle。失败或中断可能使应用处于待处理状态。请使用 `argvus keep-awake status-json` 查看，并通过 `on` 或 `off` 重试。为兼容旧版本，保留 `data/.keep-awake`。

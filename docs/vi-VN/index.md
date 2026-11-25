@@ -13,7 +13,7 @@ Sử dụng **Trung tâm Điều khiển → Nguồn** cho các trang chính sá
 
 Keep Awake có sẵn trong **Trung tâm điều khiển → Nguồn**, **Bảng điều khiển → Phiên/Nguồn**, và thông qua `SUPER + ALT + W`. Các điều khiển chia sẻ cùng trạng thái phiên, vì vậy thay đổi nó trên một giao diện sẽ cập nhật hành vi của các giao diện khác. Mỗi lần kích hoạt hoặc hủy kích hoạt sẽ hiển thị thông báo.
 
-Khi được bật, Keep Awake ngăn chính sách nhàn rỗi ARGVUS khởi động các bộ hẹn giờ khóa màn hình và nguồn hiển thị tự động. Keep Awake là một tùy chọn `/power/keep_awake` liên tục: `argvus-config` dự án đánh dấu `data/power/keep-awake`, và khi tập tin đó được bật, phiên làm việc sẽ không khởi động `argvus-hypridle.service`. Vô hiệu hóa Keep Awake để khôi phục hành vi nhàn rỗi và khóa màn hình bình thường.
+Khi được bật, Keep Awake ngăn chính sách nhàn rỗi ARGVUS khởi động các bộ hẹn giờ khóa màn hình và nguồn hiển thị tự động. Keep Awake là một tùy chọn `/power/keep_awake` liên tục: `argvus-config` dự án đánh dấu `data/power/.keep-awake`, và khi tập tin đó được bật, phiên làm việc sẽ không khởi động `argvus-hypridle.service`. Vô hiệu hóa Keep Awake để khôi phục hành vi nhàn rỗi và khóa màn hình bình thường.
 
 :::thận trọng
 Nếu màn hình không tự động khóa, hãy kiểm tra xem tính năng Giữ Máy tỉnh táo có được bật hay không và tắt nó nếu cần.
@@ -24,3 +24,5 @@ Nếu màn hình không tự động khóa, hãy kiểm tra xem tính năng Gi�
 Hypridle → `argvus lock` → Hyprlock
 
 **ARGVUS Thời gian chờ khóa** · `argvus idle-timeout` · `Super + Shift + L` · `↑` `↓` (Điều hướng) · `Enter` (Chọn) · `Esc` (Đóng)
+
+Tùy chọn được lưu trước khi áp dụng cho Hypridle. Khi có lỗi hoặc gián đoạn, việc áp dụng có thể còn chờ. Kiểm tra bằng `argvus keep-awake status-json` rồi thử lại với `on` hoặc `off`. Tệp `data/.keep-awake` được giữ để tương thích.

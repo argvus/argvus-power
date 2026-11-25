@@ -13,7 +13,7 @@ Gunakan **Control Center → Power** untuk halaman kebijakan daya/sesi yang ters
 
 Keep Awake tersedia di **Control Center → Power**, **Control Panel → Session/Power**, dan melalui `SUPER + ALT + W`. Kontrol tersebut berbagi status sesi yang sama, jadi mengubahnya di satu tempat akan memperbarui perilaku di tempat lain. Setiap aktivasi atau deaktivasi menampilkan notifikasi.
 
-Ketika diaktifkan, Tetap Terjaga mencegah kebijakan menganggur ARGVUS memulai penguncian layar otomatis dan penghitung daya tampilan. Tetap Terjaga adalah preferensi `/power/keep_awake` yang persisten: `argvus-config` memproyeksikan penanda `data/power/keep-awake`, dan saat file itu diaktifkan sesi tidak memulai `argvus-hypridle.service`. Nonaktifkan Tetap Terjaga untuk mengembalikan perilaku menganggur dan kunci normal.
+Ketika diaktifkan, Tetap Terjaga mencegah kebijakan menganggur ARGVUS memulai penguncian layar otomatis dan penghitung daya tampilan. Tetap Terjaga adalah preferensi `/power/keep_awake` yang persisten: `argvus-config` memproyeksikan penanda `data/power/.keep-awake`, dan saat file itu diaktifkan sesi tidak memulai `argvus-hypridle.service`. Nonaktifkan Tetap Terjaga untuk mengembalikan perilaku menganggur dan kunci normal.
 
 :::hati-hati
 Jika layar tidak terkunci secara otomatis, periksa apakah Tetap Terjaga diaktifkan dan nonaktifkan jika perlu.
@@ -24,3 +24,5 @@ Jika layar tidak terkunci secara otomatis, periksa apakah Tetap Terjaga diaktifk
 Hypridle → `argvus lock` → Hyprlock
 
 **ARGVUS Waktu tunggu penguncian** · `argvus idle-timeout` · `Super + Shift + L` · `↑` `↓` (Navigasi) · `Enter` (Pilih) · `Esc` (Tutup)
+
+Preferensi disimpan sebelum diterapkan ke Hypridle. Kegagalan atau interupsi dapat membuat penerapan tertunda. Periksa `argvus keep-awake status-json` dan coba lagi dengan `on` atau `off`. Berkas `data/.keep-awake` dipertahankan untuk kompatibilitas.
